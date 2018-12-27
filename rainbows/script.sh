@@ -3,11 +3,11 @@
 clear
 #for seed in `seq -f "%04g" 1 20`;
 #do
-#	echo $seed
-#	filename="rnbw_$seed"
-#	echo $filename
-#	sleep 0.1
-#	tput cup 0 0
+#   echo $seed
+#   filename="rnbw_$seed"
+#   echo $filename
+#   sleep 0.1
+#   tput cup 0 0
 #done;
 #exit
 
@@ -26,13 +26,13 @@ while true;
 do
 sources=(`ls rnbw/rnbw*`)
 for sourceFile in ${sources[*]}
-	do
-		while IFS= read -r var
-		do
-			echo "$var"
-		done < "$sourceFile"
-		sleep 0.1
-		tput cup 0 0
-	done
+    do
+        while IFS= read -r var
+        do
+            echo "$var"
+        done < "$sourceFile"
+        sleep 0.1
+        tput cup 0 0
+    done
 done
 

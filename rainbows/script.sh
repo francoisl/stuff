@@ -1,15 +1,27 @@
 #!/bin/bash
 
+clear
+#for seed in `seq -f "%04g" 1 20`;
+#do
+#	echo $seed
+#	filename="rnbw_$seed"
+#	echo $filename
+#	sleep 0.1
+#	tput cup 0 0
+#done;
+
+#exit;
+
 # Reset cursor and shit on exit
 trap "reset; stty sane; tput rs1; clear;" exit
 
 # Clear screen, hide cursor
 clear
-#tput civis
+tput civis
 
 while true;
 do
-sources=(`ls r*`)
+sources=(`ls rnbw*`)
 for sourceFile in ${sources[*]}
 	do
 		while IFS= read -r var

@@ -9,8 +9,11 @@ clear
 #	sleep 0.1
 #	tput cup 0 0
 #done;
+#exit
 
-#exit;
+# file combination + compression
+#( for i in rnbw/rnbw_* ; do cat $i ; echo '___rnbw_file___' ; done ) | gzip -9 > rnbw/combined.gz
+#exit
 
 # Reset cursor and shit on exit
 trap "reset; stty sane; tput rs1; clear;" exit

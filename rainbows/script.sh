@@ -21,7 +21,7 @@ tput civis
 
 while true;
 do
-sources=(`ls rnbw*`)
+sources=(`ls rnbw/rnbw*`)
 for sourceFile in ${sources[*]}
 	do
 		while IFS= read -r var

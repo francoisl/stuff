@@ -7,14 +7,17 @@ trap "reset; stty sane; tput rs1; clear;" exit
 clear
 #tput civis
 
+while true;
+do
 sources=(`ls r*`)
 for sourceFile in ${sources[*]}
-do
-	while IFS= read -r var
 	do
-		echo "$var"
-	done < "$sourceFile"
-	sleep 0.1
-	tput cup 0 0
+		while IFS= read -r var
+		do
+			echo "$var"
+		done < "$sourceFile"
+		sleep 0.1
+		tput cup 0 0
+	done
 done
 

@@ -8,7 +8,7 @@ function generateFiles {
     seed=$2
     for index in `seq -f "%04g" 1 $3`;
     do
-        #tput cup 1 0
+        tput cup 1 0
         filename="rnbw_$index"
         echo "Generating file $filename, seed $seed"
         tput sc

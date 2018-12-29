@@ -20,3 +20,16 @@ function generateFiles {
     ( for i in rnbw/rnbw_* ; do cat $i ; echo '___rnbw_file___' ; done ) | gzip -9 > rnbw/combined.gz
     echo Done
 }
+
+
+# play ( sourceFile: string )
+function play {
+    clear
+    data=$(cat $1 | gunzip)
+    IFS='e' read -ra rnbws <<< "$data"
+    for i in "${rnbws[@]}"; do
+        #tput cup 0 0
+        echo "$i"
+        sleep 0.2
+    done
+}

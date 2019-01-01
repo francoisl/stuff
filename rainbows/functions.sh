@@ -37,8 +37,17 @@ function play {
 # progress( step: int, totalSteps: int, width: int )
 function progressBar {
     tput sc
-    echo "$1 / $2"
-    echo $(($1 * $2 * $3 / 100))
+    percent=$(($1 * 100 / $2))
+    dotsCount=$(($1 * $2 * $3 / 100))
+    dotsLeft=$(($3 - $dotsCount))
+    echo -n "["
+    for i in `seq 0 $dotsCount`; do
+        echo -n "="
+    done
+    for i in `seq 0 $dotsLeft`; do
+        echo -n "."
+    done
+    echo -n "] $percent%"
     if (($1 < $2)); then
         tput rc
     fi

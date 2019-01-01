@@ -38,6 +38,8 @@ function play {
 function progressBar {
     tput sc
     echo "$1 / $2"
-    tput rc
+    if (($1 < $2)); then
+        tput rc
+    fi
 }
 

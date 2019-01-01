@@ -34,10 +34,11 @@ function play {
     done
 }
 
-# progress( step: int, totalSteps: int )
+# progress( step: int, totalSteps: int, width: int )
 function progressBar {
     tput sc
     echo "$1 / $2"
+    echo $(($1 * $2 * $3 / 100))
     if (($1 < $2)); then
         tput rc
     fi

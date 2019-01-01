@@ -33,3 +33,11 @@ function play {
         sleep 0.2
     done
 }
+
+# progress( step: int, totalSteps: int )
+function progressBar {
+    tput sc
+    echo "$1 / $2"
+    tput rc
+}
+

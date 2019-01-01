@@ -38,7 +38,7 @@ function play {
 function progressBar {
     tput sc
     percent=$(($1 * 100 / $2))
-    dotsCount=$(($1 * $2 * $3 / 100))
+    dotsCount=$(($percent * $3 / 100))
     dotsLeft=$(($3 - $dotsCount))
     echo -n "["
     for i in `seq 1 $3`; do

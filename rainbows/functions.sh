@@ -41,11 +41,12 @@ function progressBar {
     dotsCount=$(($1 * $2 * $3 / 100))
     dotsLeft=$(($3 - $dotsCount))
     echo -n "["
-    for i in `seq 0 $dotsCount`; do
-        echo -n "="
-    done
-    for i in `seq 0 $dotsLeft`; do
-        echo -n "."
+    for i in `seq 1 $3`; do
+        if (($i <= $dotsCount)); then
+            echo -n "="
+        else
+            echo -n "."
+        fi
     done
     echo -n "] $percent%"
     if (($1 < $2)); then

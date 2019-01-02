@@ -34,16 +34,17 @@ function play {
     done
 }
 
-# progress( step: int, totalSteps: int, width: int, [progressChar: char, [restChar: char]] )
+# progress( step: int, totalSteps: int, [width: int, [progressChar: char, [restChar: char]]] )
 function progressBar {
     tput sc
     progressChar=${4:-"="}
     restChar=${5:-"."}
+    width=${3:-$((`tput cols` - 2))}
     percent=$(($1 * 100 / $2))
-    dotsCount=$(($percent * $3 / 100))
-    dotsLeft=$(($3 - $dotsCount))
+    dotsCount=$(($percent * $width / 100))
+    dotsLeft=$(($width - $dotsCount))
     echo -n "["
-    for i in `seq 1 $3`; do
+    for i in `seq 1 $width`; do
         if (($i <= $dotsCount)); then
             echo -n "$progressChar"
         else

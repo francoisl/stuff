@@ -39,7 +39,7 @@ function progressBar {
     tput sc
     progressChar=${4:-"="}
     restChar=${5:-"."}
-    width=${3:-$((`tput cols` - 2))}
+    width=${3:-$((`tput cols` - 7))}
     percent=$(($1 * 100 / $2))
     dotsCount=$(($percent * $width / 100))
     dotsLeft=$(($width - $dotsCount))
